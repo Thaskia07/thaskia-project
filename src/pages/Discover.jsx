@@ -1,14 +1,24 @@
-// Import React dan hook penting untuk state management & lifecycle
-// - useState : membuat state lokal (data yang bisa berubah dalam komponen)
-// - useEffect : menjalankan efek samping (misalnya fetch data saat komponen pertama kali render)
-// - useRef : membuat referensi ke elemen DOM (misalnya audio player) agar bisa dikontrol langsung
+// =======================
+// 0. IMPORT DEPENDENSI
+// =======================
+
+// Import React dan beberapa hooks penting
+// - useState: untuk membuat state lokal yang bisa berubah dan memicu render ulang komponen
+// - useEffect: untuk menjalankan efek samping, misalnya fetch data, update DOM, atau listen ke perubahan state tertentu
+// - useRef: untuk referensi elemen DOM, misal audio player untuk kontrol play/pause/restart
 import React, { useEffect, useState, useRef } from "react";
 
-// Import ikon-ikon dari lucide-react untuk digunakan pada UI (ikon tombol player, favorit, dsb.)
+// Import ikon dari library lucide-react untuk digunakan pada tombol UI
+// Heart → favorit, List → playlist, X → close modal, SkipBack → prev, SkipForward → next, Repeat → repeat toggle
 import { Heart, List, X, SkipBack, SkipForward, Repeat } from "lucide-react";
 
-// Objek warna label genre
-// Setiap nama genre dipetakan ke kelas warna TailwindCSS agar punya warna khas
+// =======================
+// 1. DEFINISI WARNA GENRE
+// =======================
+
+// genreColors adalah object yang menyimpan mapping genre → kelas TailwindCSS untuk warna label
+// Tujuannya agar setiap genre memiliki warna berbeda di UI dan mudah dikenali user
+// Contoh: Pop → pink, Rock → merah, Pop Indonesia → pink muda
 const genreColors = {
   Pop: "bg-pink-500",
   Rock: "bg-red-500",
@@ -18,101 +28,128 @@ const genreColors = {
   "Pop Daerah": "bg-green-500",
   Reggae: "bg-teal-500",
   Bollywood: "bg-orange-500",
-  Indie: "bg-indigo-500", // ✅ Genre Indie ditambahkan
+  Indie: "bg-indigo-500",
+  "Pop Indonesia": "bg-pink-400", // Genre baru
 };
 
-// Komponen utama Discover
-// Komponen ini menampilkan daftar lagu, fitur filter & sort,
-// bisa menambah lagu ke favorit / playlist, serta ada audio player popup
-const Discover = () => {
-  // =======================
-  // 1. STATE MANAGEMENT
-  // =======================
-  const [tracks, setTracks] = useState([]); // Semua track dari file JSON
-  const [displayedTracks, setDisplayedTracks] = useState([]); // Subset track yang ditampilkan di layar (pagination / load more)
-  const [favorites, setFavorites] = useState([]); // Daftar lagu favorit, tersimpan di localStorage
-  const [myPlaylist, setMyPlaylist] = useState([]); // Playlist pribadi, tersimpan di localStorage
-  const [filter, setFilter] = useState(""); // Filter untuk genre
-  const [sort, setSort] = useState(""); // Sortir track berdasarkan judul / artis
-  const [loadCount, setLoadCount] = useState(10); // Batas jumlah track yang ditampilkan
-  const [currentTrack, setCurrentTrack] = useState(null); // Lagu yang sedang diputar (null = tidak ada)
-  const [isRepeat, setIsRepeat] = useState(false); // Mode repeat (ulang lagu otomatis)
-  const [notification, setNotification] = useState(""); // Pesan notifikasi (muncul 2 detik lalu hilang)
+// =======================
+// 2. COMPONENT DISCOVER
+// =======================
 
-  // Ref ke elemen audio (HTML5 <audio>) supaya bisa mengontrol play, pause, dsb. dari kode
+// Komponen Discover: menampilkan track musik, filter, sort, favorite, playlist, dan floating audio player
+const Discover = () => {
+
+  // =======================
+  // 2A. STATE MANAGEMENT
+  // =======================
+
+  // tracks → semua lagu yang diambil dari JSON
+  const [tracks, setTracks] = useState([]);
+
+  // displayedTracks → lagu yang saat ini ditampilkan di UI
+  // Digunakan untuk implementasi "Load More" sehingga tidak semua lagu ditampilkan sekaligus
+  const [displayedTracks, setDisplayedTracks] = useState([]);
+
+  // favorites → daftar lagu favorit user, disimpan di localStorage
+  const [favorites, setFavorites] = useState([]);
+
+  // myPlaylist → daftar lagu yang dimasukkan ke playlist pribadi, juga disimpan di localStorage
+  const [myPlaylist, setMyPlaylist] = useState([]);
+
+  // filter → genre yang dipilih user
+  const [filter, setFilter] = useState("");
+
+  // sort → pilihan sorting lagu, bisa title asc/desc atau artist asc/desc
+  const [sort, setSort] = useState("");
+
+  // loadCount → jumlah lagu yang ditampilkan di UI (untuk implementasi load more)
+  const [loadCount, setLoadCount] = useState(10);
+
+  // currentTrack → track yang sedang diputar di audio player
+  const [currentTrack, setCurrentTrack] = useState(null);
+
+  // isRepeat → apakah mode repeat aktif atau tidak
+  const [isRepeat, setIsRepeat] = useState(false);
+
+  // notification → pesan notifikasi sementara, misal "added to playlist"
+  const [notification, setNotification] = useState("");
+
+  // Ref untuk audio player, memungkinkan kita mengontrol elemen audio secara langsung
   const audioRef = useRef(null);
 
   // =======================
-  // 2. FETCH DATA + LOCALSTORAGE
+  // 2B. FETCH DATA + LOCALSTORAGE
   // =======================
+
   useEffect(() => {
-    // Fetch daftar track dari file JSON lokal
+    // 1. Ambil data lagu dari JSON lokal di folder public
+    // fetch("/tracks.json") akan memanggil file tracks.json dan mengubah response menjadi object JS
     fetch("/tracks.json")
       .then((res) => res.json())
       .then((data) => {
-        setTracks(data); // simpan semua track ke state
-        setDisplayedTracks(data.slice(0, loadCount)); // tampilkan 10 lagu pertama
+        setTracks(data); // simpan semua track di state tracks
+        setDisplayedTracks(data.slice(0, loadCount)); // tampilkan track pertama sesuai loadCount
       });
 
-    // Ambil data favorit yang tersimpan di localStorage
+    // 2. Ambil data favorit dari localStorage, jika tidak ada gunakan array kosong
     const savedFav = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(savedFav);
 
-    // Ambil data playlist pribadi dari localStorage
+    // 3. Ambil data playlist dari localStorage, jika tidak ada gunakan array kosong
     const savedPlaylist = JSON.parse(localStorage.getItem("myPlaylist")) || [];
     setMyPlaylist(savedPlaylist);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // hanya dijalankan sekali saat komponen pertama kali render
+  }, []); // [] artinya efek ini hanya dijalankan sekali saat komponen pertama kali render
 
   // =======================
-  // 3. FILTER & SORT
+  // 2C. FILTER & SORT LOGIC
   // =======================
-  // Hasil filter (genre) dan sort (judul / artis)
+
+  // filteredTracks → lagu yang sudah difilter dan diurutkan sesuai filter/sort user
   const filteredTracks = tracks
-    .filter((track) => (filter ? track.genre === filter : true)) // filter genre (jika kosong, tampil semua)
-    .sort((a, b) => {
+    .filter((track) => (filter ? track.genre === filter : true)) // jika filter kosong → tampil semua
+    .sort((a, b) => { // sort berdasarkan pilihan user
       if (sort === "title-asc") return a.title.localeCompare(b.title);
       if (sort === "title-desc") return b.title.localeCompare(a.title);
       if (sort === "artist-asc") return a.artist.localeCompare(b.artist);
       if (sort === "artist-desc") return b.artist.localeCompare(a.artist);
-      return 0; // default: tidak ada perubahan
+      return 0; // default → tidak ada sort
     });
 
-  // Saat filter/sort berubah → reset daftar yang ditampilkan ke 10 lagu pertama
+  // Update displayedTracks setiap filter atau sort berubah
   useEffect(() => {
-    setDisplayedTracks(filteredTracks.slice(0, 10));
-    setLoadCount(10);
+    setDisplayedTracks(filteredTracks.slice(0, 10)); // reset tampilan ke 10 lagu pertama
+    setLoadCount(10); // reset loadCount ke 10
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, sort, tracks]);
 
   // =======================
-  // 4. FUNGSI-FUNGSI UTAMA
+  // 2D. FUNGSI UTAMA
   // =======================
 
-  // Tambahkan 10 lagu lagi ke daftar yang ditampilkan
+  // Fungsi Load More → menampilkan 10 lagu tambahan dari filteredTracks
   const handleLoadMore = () => {
     const nextCount = loadCount + 10;
     setDisplayedTracks(filteredTracks.slice(0, nextCount));
     setLoadCount(nextCount);
   };
 
-  // Tampilkan notifikasi sementara (2 detik)
+  // Fungsi menampilkan notifikasi sementara
   const showNotification = (message) => {
     setNotification(message);
-    setTimeout(() => setNotification(""), 2000);
+    setTimeout(() => setNotification(""), 2000); // hilang setelah 2 detik
   };
 
-  // Toggle favorit (jika sudah favorit → hapus, kalau belum → tambahkan)
+  // Toggle favorite: jika track sudah ada di favorites → hapus, jika belum → tambah
   const toggleFavorite = (track) => {
-    const isFav = favorites.find((t) => t.id === track.id); // cek apakah track sudah ada di favorit
+    const isFav = favorites.find((t) => t.id === track.id);
     const updated = isFav
-      ? favorites.filter((t) => t.id !== track.id) // hapus dari favorit
-      : [...favorites, track]; // tambahkan ke favorit
+      ? favorites.filter((t) => t.id !== track.id)
+      : [...favorites, track];
     setFavorites(updated);
     localStorage.setItem("favorites", JSON.stringify(updated)); // simpan ke localStorage
 
-    // tampilkan notifikasi
     showNotification(
       isFav
         ? `${track.title} removed from Favorites`
@@ -120,75 +157,82 @@ const Discover = () => {
     );
   };
 
-  // Tambahkan lagu ke playlist pribadi (jika belum ada)
+  // Tambah track ke playlist pribadi
   const addToMyPlaylist = (track) => {
     if (!myPlaylist.find((t) => t.id === track.id)) {
       const updated = [...myPlaylist, track];
       setMyPlaylist(updated);
-      localStorage.setItem("myPlaylist", JSON.stringify(updated)); // simpan ke localStorage
+      localStorage.setItem("myPlaylist", JSON.stringify(updated)); // update localStorage
       showNotification(`${track.title} added to My Playlist!`);
     } else {
       showNotification(`${track.title} is already in My Playlist!`);
     }
   };
 
-  // Pindah ke track berikutnya
+  // Next track (looping)
   const handleNext = () => {
     if (!currentTrack) return;
     const currentIndex = tracks.findIndex((t) => t.id === currentTrack.id);
-    const nextIndex = (currentIndex + 1) % tracks.length; // % untuk looping
+    const nextIndex = (currentIndex + 1) % tracks.length; // modulo untuk looping
     setCurrentTrack(tracks[nextIndex]);
   };
 
-  // Pindah ke track sebelumnya
+  // Previous track (looping)
   const handlePrev = () => {
     if (!currentTrack) return;
     const currentIndex = tracks.findIndex((t) => t.id === currentTrack.id);
-    const prevIndex = (currentIndex - 1 + tracks.length) % tracks.length; // +tracks.length agar tidak negatif
+    const prevIndex = (currentIndex - 1 + tracks.length) % tracks.length; // modulo untuk looping
     setCurrentTrack(tracks[prevIndex]);
   };
 
   // =======================
-  // 5. EVENT AUDIO
+  // 2E. EVENT AUDIO
   // =======================
-  // Saat lagu selesai diputar
+
+  // Memantau event ketika audio selesai diputar
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.onended = () => {
-        if (isRepeat) {
-          // Jika repeat aktif → ulangi lagu dari awal
+        if (isRepeat) { // jika repeat aktif → putar ulang track
           audioRef.current.currentTime = 0;
           audioRef.current.play();
-        } else {
-          // Jika repeat off → otomatis pindah ke lagu berikutnya
+        } else { // jika tidak → lanjut ke track berikutnya
           handleNext();
         }
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentTrack, isRepeat]);
+  }, [currentTrack, isRepeat]); // dependensi: currentTrack, isRepeat
 
   // =======================
-  // 6. RENDER UI
+  // 3. RENDER UI
   // =======================
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 text-white p-6 relative overflow-hidden">
-      
-      {/* Notifikasi (muncul 2 detik di tengah atas layar) */}
+
+      {/* =======================
+          3A. NOTIFIKASI POPUP
+          Muncul sementara saat user menambahkan favorit/playlist
+      ======================= */}
       {notification && (
         <div className="fixed top-5 left-1/2 -translate-x-1/2 bg-white/20 text-white px-6 py-3 rounded-xl backdrop-blur-md shadow-lg z-50 animate-slide-down">
           {notification}
         </div>
       )}
 
-      {/* Judul halaman */}
+      {/* =======================
+          3B. JUDUL HALAMAN
+      ======================= */}
       <h1 className="text-5xl font-extrabold mb-12 text-center tracking-wide drop-shadow-lg animate-bounce">
         Discover 🎶
       </h1>
 
-      {/* Dropdown untuk Filter & Sort */}
+      {/* =======================
+          3C. FILTER & SORT DROPDOWN
+      ======================= */}
       <div className="flex flex-wrap gap-4 mb-10 justify-center">
-        {/* Filter genre */}
+        {/* Dropdown Filter Genre */}
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
@@ -200,7 +244,7 @@ const Discover = () => {
           ))}
         </select>
 
-        {/* Sortir lagu */}
+        {/* Dropdown Sort */}
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value)}
@@ -214,24 +258,27 @@ const Discover = () => {
         </select>
       </div>
 
-      {/* Grid daftar track */}
+      {/* =======================
+          3D. GRID TRACKS
+          Menampilkan cover, judul, artis, tombol favorite + playlist
+      ======================= */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {displayedTracks.map((track) => {
-          const isFav = favorites.find((t) => t.id === track.id);
+          const isFav = favorites.find((t) => t.id === track.id); // cek apakah track sudah di favorit
           return (
             <div
               key={track.id}
               className="bg-white/10 backdrop-blur-md rounded-2xl p-3 flex flex-col items-center transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] cursor-pointer group"
-              onClick={() => setCurrentTrack(track)} // klik kartu = putar lagu
+              onClick={() => setCurrentTrack(track)} // klik → buka floating player
             >
-              {/* Cover lagu */}
               <div className="relative w-full">
+                {/* Cover */}
                 <img
                   src={track.cover}
                   alt={track.title}
                   className="w-full h-36 object-cover rounded-xl transition-transform group-hover:scale-105"
                 />
-                {/* Label genre */}
+                {/* Label Genre */}
                 <span
                   className={`absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold rounded-full text-white shadow-md ${
                     genreColors[track.genre] || "bg-gray-500"
@@ -241,11 +288,10 @@ const Discover = () => {
                 </span>
               </div>
 
-              {/* Judul & artis */}
               <h3 className="mt-2 font-semibold text-base text-center drop-shadow-md">{track.title}</h3>
               <p className="text-gray-300 text-xs text-center italic">{track.artist}</p>
 
-              {/* Tombol aksi */}
+              {/* Tombol Favorite + Playlist */}
               <div className="flex gap-3 mt-2">
                 {/* Favorite */}
                 <button
@@ -256,7 +302,8 @@ const Discover = () => {
                 >
                   <Heart size={16} />
                 </button>
-                {/* Tambah ke playlist */}
+
+                {/* Tambah Playlist */}
                 <button
                   onClick={(e) => { e.stopPropagation(); addToMyPlaylist(track); }}
                   className="p-2 rounded-full bg-green-500 hover:bg-green-600 transition-all hover:scale-110 shadow-md"
@@ -269,7 +316,10 @@ const Discover = () => {
         })}
       </div>
 
-      {/* Tombol Load More */}
+      {/* =======================
+          3E. LOAD MORE BUTTON
+          Menampilkan tombol untuk memuat track tambahan
+      ======================= */}
       {displayedTracks.length < filteredTracks.length && (
         <div className="flex justify-center mt-12">
           <button
@@ -281,12 +331,15 @@ const Discover = () => {
         </div>
       )}
 
-      {/* Floating Player (Now Playing) */}
+      {/* =======================
+          3F. FLOATING AUDIO PLAYER
+          Muncul di atas layar saat user klik track
+      ======================= */}
       {currentTrack && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fade-in">
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-2xl w-96 flex flex-col items-center p-6 relative transform animate-slide-up border border-white/20">
             
-            {/* Tombol close */}
+            {/* Tombol Close */}
             <button
               onClick={() => setCurrentTrack(null)}
               className="absolute top-3 right-3 p-2 rounded-full hover:bg-red-500 transition"
@@ -294,7 +347,7 @@ const Discover = () => {
               <X size={22} />
             </button>
 
-            {/* Cover lagu yang sedang diputar */}
+            {/* Cover Track */}
             <img
               src={currentTrack.cover}
               alt={currentTrack.title}
@@ -305,7 +358,7 @@ const Discover = () => {
             <h2 className="text-2xl font-extrabold text-center drop-shadow-lg">{currentTrack.title}</h2>
             <p className="text-gray-300 text-center italic mb-2">{currentTrack.artist}</p>
 
-            {/* Audio player */}
+            {/* Audio Player */}
             <audio
               ref={audioRef}
               src={currentTrack.preview}
@@ -314,17 +367,11 @@ const Discover = () => {
               className="w-full mt-3 rounded-lg"
             />
 
-            {/* Kontrol player */}
+            {/* Kontrol Prev / Favorite / Next */}
             <div className="flex gap-4 mt-5">
-              {/* Prev */}
-              <button
-                onClick={handlePrev}
-                className="p-3 rounded-full bg-blue-500 hover:bg-blue-600 shadow-md"
-              >
+              <button onClick={handlePrev} className="p-3 rounded-full bg-blue-500 hover:bg-blue-600 shadow-md">
                 <SkipBack size={22} />
               </button>
-
-              {/* Favorite */}
               <button
                 onClick={() => toggleFavorite(currentTrack)}
                 className={`p-3 rounded-full transition-all hover:scale-125 shadow-md ${
@@ -335,17 +382,12 @@ const Discover = () => {
               >
                 <Heart size={24} />
               </button>
-
-              {/* Next */}
-              <button
-                onClick={handleNext}
-                className="p-3 rounded-full bg-blue-500 hover:bg-blue-600 shadow-md"
-              >
+              <button onClick={handleNext} className="p-3 rounded-full bg-blue-500 hover:bg-blue-600 shadow-md">
                 <SkipForward size={22} />
               </button>
             </div>
 
-            {/* Toggle repeat */}
+            {/* Toggle Repeat */}
             <button
               onClick={() => setIsRepeat(!isRepeat)}
               className={`mt-5 px-6 py-2 flex items-center gap-2 rounded-xl font-bold shadow-md ${
@@ -362,5 +404,7 @@ const Discover = () => {
   );
 };
 
-// Export komponen agar bisa dipakai di file lain
+// =======================
+// 4. EXPORT COMPONENT
+// =======================
 export default Discover;

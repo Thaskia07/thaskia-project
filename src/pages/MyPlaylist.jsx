@@ -1,21 +1,28 @@
+// ===============================
 // Import modul React & hook bawaan
+// ===============================
+// React → library utama untuk membuat komponen UI reaktif
+// useState → hook untuk membuat state lokal di komponen fungsional
+// useEffect → hook untuk menjalankan side effect, seperti fetch data atau update DOM
 import React, { useState, useEffect } from "react";
 
-// Import berbagai ikon dari library "lucide-react"
-// - X → tombol close (✖)
-// - Play → ikon play (▶)
-// - Trash2 → ikon hapus 🗑
-// - SkipForward → tombol next ⏭
-// - SkipBack → tombol previous ⏮
-// - Search → ikon pencarian 🔍
+// ===============================
+// Import ikon dari lucide-react
+// ===============================
+// X → tombol close/exit (✖)
+// Play → tombol play (▶)
+// Trash2 → tombol hapus 🗑
+// SkipForward → tombol next/track berikutnya ⏭
+// SkipBack → tombol previous/track sebelumnya ⏮
+// Search → ikon search/pencarian 🔍
 import { X, Play, Trash2, SkipForward, SkipBack, Search } from "lucide-react"; 
 
-/* ------------------------------------------------
-   Object mapping untuk warna background berdasarkan genre lagu.
-   - Key: nama genre (Pop, Rock, dll.)
-   - Value: kelas Tailwind CSS untuk memberi warna pada label genre.
-   Fungsinya: supaya setiap genre punya identitas visual konsisten.
------------------------------------------------- */
+// ===============================
+// Object mapping warna genre
+// ===============================
+// Tujuannya: setiap genre punya identitas visual yang konsisten menggunakan Tailwind CSS.
+// Key = nama genre (string)
+// Value = kelas Tailwind (string) untuk memberi warna background label genre
 const genreColors = {
   Pop: "bg-pink-500",
   Rock: "bg-red-500",
@@ -25,129 +32,133 @@ const genreColors = {
   "Pop Daerah": "bg-green-500",
   Reggae: "bg-teal-500",
   Bollywood: "bg-orange-500",
+  "Pop Indonesia": "bg-pink-400", // ✅ genre baru ditambahkan
 };
 
-/* ------------------------------------------------
-   Komponen utama: MyPlaylist
-   Menampilkan playlist lagu user, mendukung:
-   - Pencarian lagu (search)
-   - Play, Next, Previous
-   - Hapus lagu
-   - Mini player yang "floating" di bawah layar
------------------------------------------------- */
+// ===============================
+// Komponen utama: MyPlaylist
+// ===============================
+// Fungsi: menampilkan playlist user, mendukung pencarian lagu, play/next/prev, hapus lagu, mini player floating
 const MyPlaylist = () => {
-  /* ------------------------------------------
-     STATE MANAGEMENT
-  ------------------------------------------ */
-  const [myPlaylist, setMyPlaylist] = useState([]);
-  // → Menyimpan seluruh daftar lagu (array objek lagu).
-  // → Setiap objek lagu biasanya punya: id, title, artist, cover, genre, preview.
+
+  // ===============================
+  // STATE MANAGEMENT
+  // ===============================
+  const [myPlaylist, setMyPlaylist] = useState([]); 
+  // → Menyimpan seluruh lagu yang ditampilkan di UI. Array berisi objek:
+  // {id, title, artist, cover, genre, preview}
 
   const [currentIndex, setCurrentIndex] = useState(null);
   // → Menyimpan index lagu yang sedang diputar.
-  // → null berarti tidak ada lagu yang aktif (player tersembunyi).
+  // → null = tidak ada lagu yang sedang diputar → mini player tersembunyi.
 
-  const [search, setSearch] = useState("");
-  // → Menyimpan input pencarian dari user.
-  // → Digunakan untuk filter daftar lagu sesuai title/artist.
+  const [search, setSearch] = useState(""); 
+  // → Menyimpan input pencarian user.
+  // → Digunakan untuk filter lagu berdasarkan judul/artist.
 
-  /* ------------------------------------------
-     useEffect: Load data playlist dari localStorage
-     - Dipanggil sekali saat komponen pertama kali render.
-     - Ambil string dari localStorage dengan key "myPlaylist".
-     - Jika tidak ada data, pakai array kosong.
-     - Update state myPlaylist agar UI sinkron dengan localStorage.
-  ------------------------------------------ */
+  // ===============================
+  // FETCH DATA dari tracks.json
+  // ===============================
   useEffect(() => {
+    // 1️⃣ Ambil playlist dari localStorage jika user sebelumnya sudah menyimpan playlist
     const savedPlaylist = JSON.parse(localStorage.getItem("myPlaylist")) || [];
-    setMyPlaylist(savedPlaylist);
+    
+    if (savedPlaylist.length > 0) {
+      // Jika ada data di localStorage → langsung set state
+      setMyPlaylist(savedPlaylist);
+    } else {
+      // Jika localStorage kosong → fetch dari tracks.json
+      fetch("/tracks.json")
+        .then((res) => res.json()) // ubah response jadi JSON
+        .then((data) => {
+          setMyPlaylist(data); // set semua lagu dari file ke state
+          localStorage.setItem("myPlaylist", JSON.stringify(data)); 
+          // Simpan juga ke localStorage agar user tetap punya playlist saat reload
+        })
+        .catch((err) => console.error("Error fetching tracks.json:", err));
+    }
   }, []);
+  // [] → dependency array kosong, berarti hanya dijalankan sekali saat mount
 
-  /* ------------------------------------------
-     FUNGSI: removeTrack
-     - Input: trackId (id lagu yang ingin dihapus)
-     - Proses:
-       1. Buat playlist baru tanpa lagu dengan id tsb.
-       2. Cek apakah lagu yang dihapus sedang diputar.
-          • Jika iya → set currentIndex ke null (stop player).
-          • Jika posisi lagu yang dihapus ada sebelum currentIndex,
-            maka currentIndex dikurangi 1 (supaya index tetap valid).
-       3. Simpan playlist terbaru ke localStorage.
-     - Output: state myPlaylist terupdate.
-  ------------------------------------------ */
+  // ===============================
+  // FUNGSI: removeTrack
+  // ===============================
+  // Hapus lagu dari playlist
   const removeTrack = (trackId) => {
     setMyPlaylist((prev) => {
-      const updated = prev.filter((t) => t.id !== trackId); // hapus lagu
-      const removedIndex = prev.findIndex((t) => t.id === trackId); // cari posisi lagu yg dihapus
+      // Filter array → hapus lagu dengan id yang sama
+      const updated = prev.filter((t) => t.id !== trackId);
 
+      // Dapatkan index lagu yang dihapus
+      const removedIndex = prev.findIndex((t) => t.id === trackId);
+
+      // Atur currentIndex agar mini player tetap valid
       if (currentIndex !== null) {
         if (removedIndex === currentIndex) {
-          // Lagu yg diputar dihapus → stop player
+          // Lagu yang sedang diputar dihapus → stop player
           setCurrentIndex(null);
         } else if (removedIndex < currentIndex) {
-          // Lagu dihapus sebelum lagu yg sedang main → geser index ke kiri
+          // Lagu dihapus sebelum lagu yang sedang main → geser index ke kiri
           setCurrentIndex((ci) => ci - 1);
         }
       }
 
+      // Update localStorage agar tetap sinkron
       localStorage.setItem("myPlaylist", JSON.stringify(updated));
+
       return updated;
     });
   };
 
-  /* ------------------------------------------
-     FUNGSI: Kontrol player (play/next/prev)
-  ------------------------------------------ */
+  // ===============================
+  // FUNGSI: Kontrol player (Play/Next/Prev)
+  // ===============================
   const handlePlayTrack = (index) => setCurrentIndex(index);
-  // → Menyetel lagu tertentu untuk diputar, berdasarkan index.
+  // → Menyetel lagu tertentu untuk diputar, index = posisi lagu di myPlaylist
 
   const handleNext = () =>
     currentIndex !== null &&
     myPlaylist.length > 0 &&
     setCurrentIndex((currentIndex + 1) % myPlaylist.length);
-  // → Pindah ke lagu berikutnya.
-  // → Operator modulo (%) membuat playlist berulang (looping kembali ke awal).
+  // → Pindah ke lagu berikutnya
+  // → % myPlaylist.length membuat playlist looping ke awal jika sampai akhir
 
   const handlePrev = () =>
     currentIndex !== null &&
     myPlaylist.length > 0 &&
     setCurrentIndex((currentIndex - 1 + myPlaylist.length) % myPlaylist.length);
-  // → Pindah ke lagu sebelumnya.
-  // → Ditambah myPlaylist.length supaya tidak negatif saat di lagu pertama.
+  // → Pindah ke lagu sebelumnya
+  // → + myPlaylist.length untuk menghindari negatif saat index = 0
 
-  /* ------------------------------------------
-     STATE TURUNAN (Derived State)
-  ------------------------------------------ */
+  // ===============================
+  // DERIVED STATE
+  // ===============================
   const playingTrack = currentIndex !== null ? myPlaylist[currentIndex] : null;
-  // → Objek lagu yang sedang diputar.
-  // → null jika tidak ada lagu yang aktif.
+  // → Objek lagu yang sedang diputar
+  // → null jika tidak ada lagu aktif
 
   const filteredPlaylist = myPlaylist.filter(
     (track) =>
       track.title.toLowerCase().includes(search.toLowerCase()) ||
       track.artist.toLowerCase().includes(search.toLowerCase())
   );
-  // → Hasil filter dari myPlaylist berdasarkan input search.
-  // → Pencarian case-insensitive karena pakai toLowerCase().
+  // → Filter playlist berdasarkan input search
+  // → Case-insensitive karena pakai toLowerCase()
 
-  /* ------------------------------------------
-     RENDER UI
-  ------------------------------------------ */
+  // ===============================
+  // RENDER UI
+  // ===============================
   return (
     <div className="min-h-screen relative bg-gradient-to-br from-black via-black/70 to-purple-900 text-white p-6 overflow-hidden">
-      {/* Judul halaman utama */}
+
+      {/* Judul halaman */}
       <h1 className="text-5xl font-extrabold mb-6 text-center tracking-wide 
                      bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-purple-200 
                      drop-shadow-2xl animate-bounce">
         My Playlist 🎶
       </h1>
 
-      {/* ------------------------------------------
-          SEARCH BAR
-          - Input teks untuk mencari lagu.
-          - Ikon Search ditampilkan di kiri input.
-          - Input dikontrol oleh state "search".
-      ------------------------------------------ */}
+      {/* SEARCH BAR */}
       <div className="flex justify-center mb-8">
         <div className="flex items-center bg-white/10 rounded-2xl px-3 py-2 w-full max-w-md">
           <Search size={18} className="text-white mr-2" />
@@ -161,11 +172,7 @@ const MyPlaylist = () => {
         </div>
       </div>
 
-      {/* ------------------------------------------
-          PLAYLIST GRID
-          - Jika playlist kosong → tampilkan pesan.
-          - Jika ada lagu → render dalam grid card.
-      ------------------------------------------ */}
+      {/* PLAYLIST GRID */}
       {filteredPlaylist.length === 0 ? (
         <p className="text-center text-gray-400 text-lg italic mt-32">
           {myPlaylist.length === 0
@@ -177,7 +184,6 @@ const MyPlaylist = () => {
           {filteredPlaylist.map((track, index) => (
             <div
               key={track.id}
-              // Style kondisi: kalau lagu ini sedang diputar → highlight dengan ring & scale
               className={`relative group bg-white/10 backdrop-blur-md rounded-2xl p-3 cursor-pointer transition-all duration-300 ${
                 index === currentIndex
                   ? "ring-2 ring-purple-400 shadow-[0_0_25px_rgba(150,75,200,0.6)] scale-105"
@@ -185,7 +191,7 @@ const MyPlaylist = () => {
               }`}
               onClick={() => handlePlayTrack(index)}
             >
-              {/* Thumbnail lagu (cover album/artwork) */}
+              {/* Thumbnail lagu */}
               <div className="relative">
                 <img
                   src={track.cover}
@@ -193,10 +199,10 @@ const MyPlaylist = () => {
                   className="w-full h-40 object-cover rounded-xl transition-transform group-hover:scale-105"
                 />
 
-                {/* Tombol hapus lagu (pojok kanan atas) */}
+                {/* Tombol hapus */}
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // Supaya klik tombol hapus tidak ikut trigger play
+                    e.stopPropagation(); // klik tombol hapus tidak trigger play
                     removeTrack(track.id);
                   }}
                   className="absolute top-2 right-2 p-2 rounded-full bg-red-600/80 hover:bg-red-700 transition shadow-md"
@@ -204,7 +210,7 @@ const MyPlaylist = () => {
                   <Trash2 size={16} />
                 </button>
 
-                {/* Label genre lagu (pojok kiri atas) */}
+                {/* Label genre */}
                 <span
                   className={`absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold rounded-full text-white shadow-md ${
                     genreColors[track.genre] || "bg-gray-500"
@@ -214,7 +220,7 @@ const MyPlaylist = () => {
                 </span>
               </div>
 
-              {/* Judul lagu & nama artist */}
+              {/* Judul & artist */}
               <h3 className="mt-2 font-bold text-lg truncate">{track.title}</h3>
               <p className="text-gray-300 text-sm italic truncate">{track.artist}</p>
             </div>
@@ -222,26 +228,18 @@ const MyPlaylist = () => {
         </div>
       )}
 
-      {/* ------------------------------------------
-          MINI PLAYER FLOATING
-          - Hanya muncul kalau ada lagu yg sedang diputar (playingTrack != null).
-          - Menempel di bawah layar.
-          - Menampilkan cover, judul, artist, audio player, & tombol kontrol.
-      ------------------------------------------ */}
+      {/* MINI PLAYER FLOATING */}
       {playingTrack && (
         <div className="fixed bottom-4 left-4 right-4 
                         bg-gradient-to-r from-black/80 via-black/60 to-purple-800 
                         backdrop-blur-2xl border border-white/20 z-50 
                         flex items-center gap-2 p-2 rounded-xl shadow-lg 
                         max-w-md md:max-w-lg lg:max-w-xl mx-auto">
-          {/* Thumbnail kecil cover lagu */}
           <img
             src={playingTrack.cover}
             alt={playingTrack.title}
             className="w-12 h-12 object-cover rounded-lg shadow-md"
           />
-
-          {/* Info lagu + elemen <audio> */}
           <div className="flex-1 ml-2">
             <h2 className="text-sm font-bold truncate">{playingTrack.title}</h2>
             <p className="text-xs text-gray-300 truncate">{playingTrack.artist}</p>
@@ -249,21 +247,19 @@ const MyPlaylist = () => {
               src={playingTrack.preview}   // sumber audio (preview URL)
               controls                     // tampilkan kontrol bawaan browser
               autoPlay                     // otomatis play begitu muncul
-              onEnded={handleNext}          // setelah selesai → otomatis lagu berikutnya
+              onEnded={handleNext}         // setelah selesai → otomatis next
               className="w-full mt-1"
             />
           </div>
-
-          {/* Tombol kontrol player */}
           <div className="flex items-center gap-1">
             <button
-              onClick={handlePrev}
+              onClick={handlePrev} // pindah ke lagu sebelumnya
               className="p-1 rounded-full bg-gray-700 hover:bg-gray-600 transition"
             >
               <SkipBack size={14} />
             </button>
             <button
-              onClick={handleNext}
+              onClick={handleNext} // pindah ke lagu berikutnya
               className="p-1 rounded-full bg-gray-700 hover:bg-gray-600 transition"
             >
               <SkipForward size={14} />

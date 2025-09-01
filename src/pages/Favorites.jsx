@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Heart, Shuffle, Search, Trash2 } from "lucide-react";
 
-// -----------------------
-// Mapping warna untuk genre
-// -----------------------
-// Tujuannya: setiap genre lagu punya warna berbeda agar mudah dikenali visualnya di UI
+// ============================================================================
+// Mapping warna untuk setiap genre lagu
+// ============================================================================
+// Tujuannya: memberi identitas visual yang berbeda per genre di UI.
+// Jika genre tidak ada di mapping, default ke abu-abu
+// ✅ Menambahkan "Pop Indonesia" sesuai track.json
 const genreColors = {
   Pop: "bg-pink-500",
   Rock: "bg-red-500",
@@ -14,39 +16,56 @@ const genreColors = {
   "Pop Daerah": "bg-green-500",
   Reggae: "bg-teal-500",
   Bollywood: "bg-orange-500",
+  "Pop Indonesia": "bg-pink-400",
 };
 
+// ============================================================================
+// COMPONENT Favorites
+// ============================================================================
 const Favorites = () => {
-  // -----------------------
-  // State lokal
-  // -----------------------
-  const [favorites, setFavorites] = useState([]); // daftar lagu favorit user
-  const [playingTrack, setPlayingTrack] = useState(null); // track yang sedang diputar di audio player
-  const [progress, setProgress] = useState(0); // persentase progress lagu (0..1)
-  const [search, setSearch] = useState(""); // value dari input search box
+  // --------------------------------------------------------------------------
+  // STATE
+  // --------------------------------------------------------------------------
+  const [favorites, setFavorites] = useState([]);          // Array lagu favorit
+  const [playingTrack, setPlayingTrack] = useState(null);  // Track yang sedang diputar
+  const [progress, setProgress] = useState(0);             // Progress bar (0..1)
+  const [search, setSearch] = useState("");                // Input search box
 
-  // -----------------------
-  // useRef untuk akses langsung elemen audio
-  // Bisa digunakan untuk play/pause, seek, volume, dll.
-  // -----------------------
+  // --------------------------------------------------------------------------
+  // useRef
+  // --------------------------------------------------------------------------
+  // Memberikan akses langsung ke DOM audio element, misal untuk play/pause atau seek
   const audioRef = useRef(null);
 
-  // -----------------------
-  // useEffect pertama kali mount component
-  // -----------------------
-  // Load favorites dari localStorage agar data tersimpan walau reload page
+  // --------------------------------------------------------------------------
+  // useEffect: load favorites
+  // --------------------------------------------------------------------------
+  // Jalankan sekali saat component pertama kali mount
   useEffect(() => {
     const savedFav = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavorites(savedFav);
+    if (savedFav.length > 0) {
+      // Jika ada data di localStorage → load favorites
+      setFavorites(savedFav);
+    } else {
+      // Jika tidak ada → fetch data dari track.json di public folder
+      fetch("/track.json")
+        .then((res) => res.json())
+        .then((data) => {
+          setFavorites(data); // Set state favorites
+          localStorage.setItem("favorites", JSON.stringify(data)); // Simpan ke localStorage
+        })
+        .catch((err) => console.error("Error fetching track.json:", err));
+    }
   }, []);
 
-  // -----------------------
-  // Fungsi untuk menghapus lagu dari favorites
-  // -----------------------
+  // --------------------------------------------------------------------------
+  // FUNCTION removeFavorite
+  // --------------------------------------------------------------------------
+  // Menghapus lagu dari favorites
   // 1. Filter track yang ingin dihapus
   // 2. Update state favorites
-  // 3. Update localStorage agar persist
-  // 4. Jika lagu yang dihapus sedang diputar, hentikan player
+  // 3. Update localStorage
+  // 4. Hentikan audio jika lagu yang dihapus sedang diputar
   const removeFavorite = (trackId) => {
     const updatedFav = favorites.filter((t) => t.id !== trackId);
     setFavorites(updatedFav);
@@ -55,23 +74,24 @@ const Favorites = () => {
     if (playingTrack && playingTrack.id === trackId) setPlayingTrack(null);
   };
 
-  // -----------------------
-  // Fungsi untuk memulai memutar track tertentu
-  // -----------------------
-  // - Mengupdate state playingTrack
-  // - Reset progress bar ke 0
+  // --------------------------------------------------------------------------
+  // FUNCTION handlePlayTrack
+  // --------------------------------------------------------------------------
+  // Memulai memutar track tertentu
+  // 1. Set track yang sedang diputar
+  // 2. Reset progress bar ke 0
   const handlePlayTrack = (track) => {
     setPlayingTrack(track);
     setProgress(0);
   };
 
-  // -----------------------
-  // Fungsi memutar track random dari daftar favorites
-  // -----------------------
-  // - Cek dulu apakah favorites ada
-  // - Pilih index random
-  // - Set playingTrack ke track random
-  // - Reset progress
+  // --------------------------------------------------------------------------
+  // FUNCTION handlePlayRandom
+  // --------------------------------------------------------------------------
+  // Memutar track random dari daftar favorites
+  // 1. Pilih track secara acak
+  // 2. Set track yang sedang diputar
+  // 3. Reset progress bar
   const handlePlayRandom = () => {
     if (favorites.length > 0) {
       const randomIndex = Math.floor(Math.random() * favorites.length);
@@ -80,23 +100,23 @@ const Favorites = () => {
     }
   };
 
-  // -----------------------
-  // Filter lagu berdasarkan search input
-  // -----------------------
-  // - Lowercase untuk case-insensitive
+  // --------------------------------------------------------------------------
+  // FILTER favorites berdasarkan search input
+  // --------------------------------------------------------------------------
+  // Case-insensitive, filter di title dan artist
   const filteredFavorites = favorites.filter(
     (track) =>
       track.title.toLowerCase().includes(search.toLowerCase()) ||
       track.artist.toLowerCase().includes(search.toLowerCase())
   );
 
-  // -----------------------
-  // Auto-play next track
-  // -----------------------
-  // Dipanggil ketika lagu selesai (onEnded pada audio)
-  // - Cari index lagu saat ini di filteredFavorites
-  // - Jika terakhir, loop kembali ke track pertama
-  // - Update playingTrack dan reset progress
+  // --------------------------------------------------------------------------
+  // FUNCTION playNextTrack
+  // --------------------------------------------------------------------------
+  // Auto-play track berikutnya saat current track selesai
+  // 1. Cari index track saat ini
+  // 2. Loop ke track pertama jika track terakhir
+  // 3. Set playingTrack baru
   const playNextTrack = () => {
     if (!playingTrack || filteredFavorites.length === 0) return;
     const currentIndex = filteredFavorites.findIndex(
@@ -108,9 +128,9 @@ const Favorites = () => {
     setProgress(0);
   };
 
-  // =======================
-  // RENDER
-  // =======================
+  // ========================================================================
+  // RENDER UI
+  // ========================================================================
   return (
     <div className="relative min-h-screen overflow-hidden text-white p-6">
       {/* Background gradient full screen */}
@@ -128,10 +148,11 @@ const Favorites = () => {
           Total: <span className="text-pink-300">{favorites.length}</span> songs
         </p>
 
+        {/* Search box + Random play */}
         <div className="flex items-center gap-3 w-full sm:w-auto">
           {/* Search box */}
           <div className="flex w-full sm:w-72 items-center bg-white rounded-2xl shadow-md overflow-hidden">
-            <Search size={18} className="ml-3 text-gray-500" />
+            <Search size={18} className="ml-3 text-gray-500" /> {/* Icon search */}
             <input
               type="text"
               value={search}
@@ -157,12 +178,12 @@ const Favorites = () => {
         </div>
       </div>
 
-      {/* Tampilkan pesan jika tidak ada lagu */}
+      {/* Pesan jika tidak ada lagu */}
       {filteredFavorites.length === 0 ? (
         <p className="text-center text-gray-300 text-lg">
           {favorites.length === 0
-            ? "You don't have any favorite songs yet." // favorites kosong
-            : "No songs match your search."} // hasil filter kosong
+            ? "You don't have any favorite songs yet."
+            : "No songs match your search."}
         </p>
       ) : (
         // Grid lagu
@@ -171,7 +192,7 @@ const Favorites = () => {
             <div
               key={track.id}
               className="bg-gradient-to-b from-purple-900 to-black rounded-xl p-4 flex flex-col items-center transform transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.7)] hover:rotate-1 cursor-pointer group relative"
-              onClick={() => handlePlayTrack(track)} // klik kartu → mainkan lagu
+              onClick={() => handlePlayTrack(track)}
             >
               {/* Cover */}
               <img
@@ -193,7 +214,7 @@ const Favorites = () => {
               {/* Tombol hapus */}
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // mencegah trigger play saat klik tombol hapus
+                  e.stopPropagation(); // Mencegah klik kartu memicu play
                   removeFavorite(track.id);
                 }}
                 className="absolute top-3 right-3 p-1 rounded-full text-red-500 hover:text-red-400 hover:scale-110 transition-transform"
@@ -210,7 +231,7 @@ const Favorites = () => {
       {playingTrack && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 animate-fade-in">
           <div className="bg-gradient-to-b from-purple-900 to-black rounded-3xl shadow-2xl w-96 flex flex-col items-center p-6 relative animate-slide-up">
-            {/* Tombol close player */}
+            {/* Tombol close */}
             <button
               onClick={() => setPlayingTrack(null)}
               className="absolute top-3 right-3 text-white text-2xl hover:text-red-400 transition-colors"
@@ -234,11 +255,11 @@ const Favorites = () => {
               src={playingTrack.preview}
               controls
               autoPlay
-              ref={audioRef} // ref untuk akses langsung
+              ref={audioRef}
               onTimeUpdate={(e) =>
                 setProgress(e.target.currentTime / e.target.duration)
-              } // update progress bar real-time
-              onEnded={playNextTrack} // auto-play lagu berikutnya
+              }
+              onEnded={playNextTrack}
               className="w-full mt-3 rounded-lg"
             />
 
@@ -250,14 +271,14 @@ const Favorites = () => {
               ></div>
             </div>
 
-            {/* Visualizer dekoratif */}
+            {/* Visualizer */}
             <div className="flex gap-1 mt-3 w-full justify-center items-end h-10">
               {Array.from({ length: 10 }).map((_, i) => (
                 <div
                   key={i}
                   className="w-1 bg-gradient-to-t from-purple-400 to-pink-400 rounded"
                   style={{
-                    height: `${Math.random() * 20 + 10}px`, // visualizer random
+                    height: `${Math.random() * 20 + 10}px`,
                     transition: "height 0.1s",
                   }}
                 ></div>
