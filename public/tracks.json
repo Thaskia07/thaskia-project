@@ -1,0 +1,1466 @@
+[
+  {
+    "id": 1,
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "cover": "public/1 m.jpg",
+    "preview": "public/audio/The Weeknd - Blinding Lights (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 2,
+    "title": "Levitating",
+    "artist": "Dua Lipa",
+    "cover": "public/2 m.jpg",
+    "preview": "public/audio/Dua Lipa - Levitating Featuring DaBaby (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 3,
+    "title": "Peaches",
+    "artist": "Justin Bieber",
+    "cover": "public/3 m.jpg",
+    "preview": "public/audio/Justin Bieber - Peaches ft. Daniel Caesar, Giveon.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 4,
+    "title": "Save Your Tears",
+    "artist": "The Weeknd",
+    "cover": "public/4 m.jpg",
+    "preview": "public/audio/The Weeknd - Save Your Tears (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 5,
+    "title": "drivers license",
+    "artist": "Olivia Rodrigo",
+    "cover": "public/5 m.jpg",
+    "preview": "public/audio/Olivia Rodrigo - drivers license (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 6,
+    "title": "Good 4 U",
+    "artist": "Olivia Rodrigo",
+    "cover": "public/6 m.jpg",
+    "preview": "public/audio/Olivia Rodrigo - good 4 u (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 7,
+    "title": "Stay",
+    "artist": "The Kid LAROI & Justin Bieber",
+    "cover": "public/7 m.jpg",
+    "preview": "public/audio/The Kid LAROI, Justin Bieber - STAY (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 8,
+    "title": "Bad Habits",
+    "artist": "Ed Sheeran",
+    "cover": "public/8 m.jpg",
+    "preview": "public/audio/Ed Sheeran - Bad Habits [Official Video].mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 9,
+    "title": "Montero",
+    "artist": "Lil Nas X",
+    "cover": "public/9 m.jpg",
+    "preview": "public/audio/Lil Nas X - MONTERO (Call Me By Your Name) (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 10,
+    "title": "Butter",
+    "artist": "BTS",
+    "cover": "public/10 m.jpg",
+    "preview": "public/audio/BTS (방탄소년단) 'Butter' Official MV.mp3",
+    "genre": "K-Pop"
+  },
+  {
+    "id": 11,
+    "title": "As It Was",
+    "artist": "Harry Styles",
+    "cover": "public/11 m.jpg",
+    "preview": "public/audio/Harry Styles - As It Was (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 12,
+    "title": "Easy On Me",
+    "artist": "Adele",
+    "cover": "public/12 m.jpg",
+    "preview": "public/audio/Adele - Easy On Me (Official Lyric Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 13,
+    "title": "Industry Baby",
+    "artist": "Lil Nas X & Jack Harlow",
+    "cover": "public/13 m.jpg",
+    "preview": "public/audio/Lil Nas X, Jack Harlow - INDUSTRY BABY (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 14,
+    "title": "Shivers",
+    "artist": "Ed Sheeran",
+    "cover": "public/14 m.jpg",
+    "preview": "public/audio/Ed Sheeran - Shivers [Official Video].mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 15,
+    "title": "Stay High",
+    "artist": "Benee",
+    "cover": "public/15 m.jpg",
+    "preview": "public/audio/Tove Lo - Habits (Stay High).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 16,
+    "title": "Savage Love",
+    "artist": "Jawsh 685 & Jason Derulo",
+    "cover": "public/16 m.jpg",
+    "preview": "public/audio/Jason Derulo - SAVAGE LOVE (Lyrics) Prod. Jawsh 685.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 17,
+    "title": "Positions",
+    "artist": "Ariana Grande",
+    "cover": "public/17 m.jpg",
+    "preview": "public/audio/Ariana Grande - positions (official video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 18,
+    "title": "Take My Breath",
+    "artist": "The Weeknd",
+    "cover": "public/18 m.jpg",
+    "preview": "public/audio/The Weeknd - Take My Breath (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 19,
+    "title": "Good Days",
+    "artist": "SZA",
+    "cover": "public/19 m.jpg",
+    "preview": "public/audio/SZA - Good Days (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 20,
+    "title": "Die For You",
+    "artist": "The Weeknd",
+    "cover": "public/20 m.jpg",
+    "preview": "public/audio/The Weeknd - Die For You.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 21,
+    "title": "Heat Waves",
+    "artist": "Glass Animals",
+    "cover": "public/21 m.jpg",
+    "preview": "public/audio/Glass Animals - Heat Waves (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 22,
+    "title": "Cold Heart",
+    "artist": "Elton John & Dua Lipa",
+    "cover": "public/22 m.jpg",
+    "preview": "public/audio/Elton John, Dua Lipa - Cold Heart (PNAU Remix) (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 23,
+    "title": "Peaches N Cream",
+    "artist": "Snoh Aalegra",
+    "cover": "public/23 m.jpg",
+    "preview": "public/audio/Snoh Aalegra - NEON PEACH ft. Tyler, The Creator.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 24,
+    "title": "Woman",
+    "artist": "Doja Cat",
+    "cover": "public/24 m.jpg",
+    "preview": "public/audio/Doja Cat - Woman (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 25,
+    "title": "Happier Than Ever",
+    "artist": "Billie Eilish",
+    "cover": "public/25 m.jpg",
+    "preview": "public/audio/Billie Eilish - Happier Than Ever (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 26,
+    "title": "Better Now",
+    "artist": "Post Malone",
+    "cover": "public/26 m.jpg",
+    "preview": "public/audio/Post Malone - Better Now (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 27,
+    "title": "Circles",
+    "artist": "Post Malone",
+    "cover": "public/27 m.jpg",
+    "preview": "public/audio/Post Malone - Circles (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 28,
+    "title": "Watermelon Sugar",
+    "artist": "Harry Styles",
+    "cover": "public/28 m.jpg",
+    "preview": "public/audio/Harry Styles - Watermelon Sugar (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 29,
+    "title": "Save Your Tears (Remix)",
+    "artist": "The Weeknd & Ariana Grande",
+    "cover": "public/29 m.jpg",
+    "preview": "public/audio/The Weeknd & Ariana Grande - Save Your Tears (Remix) (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 30,
+    "title": "Deja Vu",
+    "artist": "Olivia Rodrigo",
+    "cover": "public/30 m.jpg",
+    "preview": "public/audio/Olivia Rodrigo - deja vu.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 31,
+    "title": "Love Story (Taylors Version)",
+    "artist": "Taylor Swift",
+    "cover": "public/31 m.jpg",
+    "preview": "public/audio/Taylor Swift - Love Story (Taylors Version) [Official Lyric Video].mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 32,
+    "title": "All Too Well (10 Minute Version)",
+    "artist": "Taylor Swift",
+    "cover": "public/32 m.jpg",
+    "preview": "public/audio/All Too Well (10 Minute Version) (Taylor's Version) (From The Vault) (Lyric Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 33,
+    "title": "Unholy",
+    "artist": "Sam Smith & Kim Petras",
+    "cover": "public/33 m.jpg",
+    "preview": "public/audio/Sam Smith, Kim Petras - Unholy (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 34,
+    "title": "Ghost",
+    "artist": "Justin Bieber",
+    "cover": "public/34 m.jpg",
+    "preview": "public/audio/Justin Bieber - Ghost.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 35,
+    "title": "abcdefu",
+    "artist": "GAYLE",
+    "cover": "public/35 m.jpg",
+    "preview": "public/audio/GAYLE - abcdefu (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 36,
+    "title": "Break My Heart",
+    "artist": "Dua Lipa",
+    "cover": "public/36 m.jpg",
+    "preview": "public/audio/Dua Lipa - Break My Heart (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 37,
+    "title": "Love Me Like You Do",
+    "artist": "Ellie Goulding",
+    "cover": "public/37 m.jpg",
+    "preview": "public/audio/Ellie Goulding - Love Me Like You Do (Official Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 38,
+    "title": "Lose Yourself",
+    "artist": "Eminem",
+    "cover": "public/38 m.jpg",
+    "preview": "public/audio/Eminem - Lose Yourself.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 39,
+    "title": "Faded",
+    "artist": "Alan Walker",
+    "cover": "public/39 m.jpg",
+    "preview": "public/audio/Alan Walker - Faded.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 40,
+    "title": "Believer",
+    "artist": "Imagine Dragons",
+    "cover": "public/40 m.jpg",
+    "preview": "public/audio/Imagine Dragons - Believer (Lyrics).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 41,
+    "title": "Demons",
+    "artist": "Imagine Dragons",
+    "cover": "public/41 m.jpg",
+    "preview": "public/audio/Imagine Dragons - Demons (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 42,
+    "title": "Counting Stars",
+    "artist": "OneRepublic",
+    "cover": "public/42 m.jpg",
+    "preview": "public/audio/OneRepublic - Counting Stars.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 43,
+    "title": "Shape of You",
+    "artist": "Ed Sheeran",
+    "cover": "public/43 m.jpg",
+    "preview": "public/audio/Ed Sheeran - Shape of You (Official Music Video).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 44,
+    "title": "Perfect",
+    "artist": "Ed Sheeran",
+    "cover": "public/44 m.jpg",
+    "preview": "public/audio/Ed Sheeran - Perfect.mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 45,
+    "title": "Hati-Hati di Jalan",
+    "artist": "Tulus",
+    "cover": "public/45 m.jpg",
+    "preview": "public/audio/TULUS - Hati-Hati di Jalan (Official Lyric Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 46,
+    "title": "Cinta Luar Biasa",
+    "artist": "Andmesh Kamaleng",
+    "cover": "public/46 m.jpg",
+    "preview": "public/audio/Andmesh Kamaleng - Cinta Luar Biasa (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 47,
+    "title": "Akad",
+    "artist": "Payung Teduh",
+    "cover": "public/47 m.jpg",
+    "preview": "public/audio/Payung Teduh - Akad (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 48,
+    "title": "Menepi",
+    "artist": "Payung Teduh",
+    "cover": "public/48 m.jpg",
+    "preview": "public/audio/Payung Teduh   Untuk Perempuan.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 49,
+    "title": "Sampai Jadi Debu",
+    "artist": "Banda Neira",
+    "cover": "public/49 m.jpg",
+    "preview": "public/audio/Bandaneira Sampai Jadi Debu (unofficial music video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 50,
+    "title": "Dia",
+    "artist": "Anji",
+    "cover": "public/50 m.jpg",
+    "preview": "public/audio/ANJI - DIA (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 51,
+    "title": "Pelan-Pelan Saja",
+    "artist": "Kotak",
+    "cover": "public/51 m.jpg",
+    "preview": "public/audio/KOTAK - Pelan-Pelan Saja (Official Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 52,
+    "title": "Tentang Rasa",
+    "artist": "Astrid",
+    "cover": "public/52.jpg",
+    "preview": "public/audio/Astrid - Tentang Rasa (Official Lyric Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 53,
+    "title": "Sampai Kapan",
+    "artist": "Maliq & D'Essentials",
+    "cover": "public/53.jpg",
+    "preview": "public/audio/Maliq & d'Essential - Sampai Kapan (Official Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 54,
+    "title": "Lagu Untukmu",
+    "artist": "Raisa",
+    "cover": "public/54.jpg",
+    "preview": "public/audio/Raisa - Lagu Untukmu (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 55,
+    "title": "Mangu",
+    "artist": "Fourtwnty vt charita utami",
+    "cover": "public/55.jpg",
+    "preview": "public/audio/Fourtwnty - Mangu ft. Charita Utami ( Official Audio ).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 56,
+    "title": "Aku Disini Untukmu",
+    "artist": "Maliq & D'Essentials",
+    "cover": "public/56.jpg",
+    "preview": "public/audio/Aku Disini Untukmu  MALIQ & D'Essentials (Lirik).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 57,
+    "title": "Jika",
+    "artist": "White Shoes & The Couples Company",
+    "cover": "public/57.jpg",
+    "preview": "public/audio/White Shoes And The Couples Company Di Cikini [FmabELuDeZ4].mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 58,
+    "title": "Yang Terdalam",
+    "artist": "Peterpan / Ariel NOAH",
+    "cover": "public/58.jpg",
+    "preview": "public/audio/NOAH - Yang Terdalam (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 59,
+    "title": "Cinta dan Rahasia",
+    "artist": "Yura Yunita & Glenn Fredly",
+    "cover": "public/59.jpg",
+    "preview": "public/audio/Chord Asli dan Lengkap - Cinta dan Rahasia - Yura Yunita Ft. Glenn Fredly   NY Tutorial.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 60,
+    "title": "Pupus",
+    "artist": "Dewa 19",
+    "cover": "public/60.jpg",
+    "preview": "public/audio/Dewa - Pupus  Official Music Video.mp3",
+    "genre": "Pop Indonesia"
+  },
+{
+    "id": 61,
+    "title": "Aku Lelakimu",
+    "artist": "Anji",
+    "cover": "public/61.jpg",
+    "preview": "public/audio/Virzha - Aku Lelakimu  Official Music Video.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 62,
+    "title": "Kau Adalah",
+    "artist": "Isyana Sarasvati & Rayi Putra",
+    "cover": "public/62.jpg",
+    "preview": "public/audio/Isyana Sarasvati - Kau Adalah (feat. Rayi Putra).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 63,
+    "title": "Mungkin Nanti",
+    "artist": "Peterpan",
+    "cover": "public/63.jpg",
+    "preview": "public/audio/Peterpan - Mungkin Nanti (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 64,
+    "title": "Takkan Berpaling Darimu",
+    "artist": "Rossa",
+    "cover": "public/64.jpg",
+    "preview": "public/audio/ROSSA - Takkan Berpaling Darimu  VC Trinity.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 65,
+    "title": "see you on wednesday",
+    "artist": "Cakra Khan",
+    "cover": "public/65.jpg",
+    "preview": "public/audio/See You On Wednesday  Cakra Khan - Tennessee Whiskey  (Chris Stapleton Cover) Live Session.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 66,
+    "title": "Aku Bukan Untukmu",
+    "artist": "Rossa",
+    "cover": "public/66.jpg",
+    "preview": "public/audio/Rossa - Aku Bukan Untukmu  Official Music Video.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 67,
+    "title": "Diri",
+    "artist": "Tulus",
+    "cover": "public/67.jpg",
+    "preview": "public/audio/TULUS - Diri (Official Lyric Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 68,
+    "title": "Bahasa Kalbu",
+    "artist": "Titi DJ",
+    "cover": "public/68.jpg",
+    "preview": "public/audio/Titi Dj - Bahasa Kalbu  Official Music Video.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 69,
+    "title": "Hati yang kau sakiti",
+    "artist": "Rossa",
+    "cover": "public/69.jpg",
+    "preview": "public/audio/Rossa - Hati Yang Kau Sakiti (with Lyric)  VC Trinity.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 70,
+    "title": "Andai",
+    "artist": "Gigi",
+    "cover": "public/70.jpg",
+    "preview": "public/audio/GIGI - Andai (Official Music Video).mp3",
+    "genre": "Pop Rock Indonesia"
+  },
+  {
+    "id": 71,
+    "title": "Terbang Melayang",
+    "artist": "Ello",
+    "cover": "public/71.jpg",
+    "preview": "public/audio/Ello - Terbang Melayang (Official Audio).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 72,
+    "title": "Hanya Rindu",
+    "artist": "Andmesh Kamaleng",
+    "cover": "public/72.jpg",
+    "preview": "public/audio/ANDMESH - HANYA RINDU (OFFICIAL MUSIC VIDEO).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 73,
+    "title": "Mati Aku Mati",
+    "artist": "Dewa 19",
+    "cover": "public/73.jpg",
+    "preview": "public/audio/Dewa 19 - Mati Aku Mati (Official Music Video).mp3",
+    "genre": "Pop Rock Indonesia"
+  },
+  {
+    "id": 74,
+    "title": "Ijinkan Aku Menyayangimu",
+    "artist": "Iwan Fals",
+    "cover": "public/74.jpg",
+    "preview": "public/audio/Iwan Fals - Ijinkan Aku Menyayangimu (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 75,
+    "title": "Aku Dan Dirimu",
+    "artist": "Ari lasso ft bcl",
+    "cover": "public/75.jpg",
+    "preview": "public/audio/Ari Lasso ft BCL - Aku Dan Dirimu  Lirik HQ.mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 76,
+    "title": "Ojo Dibandingke",
+    "artist": "Farel Prayoga",
+    "cover": "public/77.jpg",
+    "preview": "public/audio/Farel Prayoga - Ojo Di Bandingke (Official Music Video ANEKA SAFARI).mp3",
+    "genre": "Dangdut"
+  },
+  {
+    "id": 77,
+    "title": "Widodari",
+    "artist": "Denny Caknan ft Guyon Waton",
+    "cover": "public/78.jpg",
+    "preview": "public/audio/DENNY CAKNAN feat. GUYON WATON - WIDODARI (Official Music Video).mp3",
+    "genre": "Dangdut"
+  },
+  {
+    "id": 78,
+    "title": "Lagi Syantik",
+    "artist": "Siti Badriah",
+    "cover": "public/79.jpg",
+    "preview": "public/audio/Siti Badriah - Lagi Syantik (Official Music Video NAGASWARA).mp3",
+    "genre": "Dangdut"
+  },
+
+  {
+    "id": 79,
+    "title": "Beta Janji Beta Jaga",
+    "artist": "Near ft Dian Sorowea",
+    "cover": "public/76.jpg",
+    "preview": "public/audio/Lirik Lagu BETA JANJI BETA JAGA  JANJI PUTIH - Doddie (cover).mp3",
+    "genre": "Pop Daerah"
+  },
+  {
+    "id": 80,
+    "title": "Sa Pu Cinta",
+    "artist": "Near",
+    "cover": "public/80.jpg",
+    "preview": "public/audio/Sean Rii & Gorby TCR - Sa Pu Cinta (Audio).mp3",
+    "genre": "Pop Daerah"
+  },
+  {
+    "id": 81,
+    "title": "Ko Bukan pelangi",
+    "artist": "Justy Aldrin",
+    "cover": "public/81.jpg",
+    "preview": "public/audio/JUSTY ALDRIN - KO BUKAN PELANGI [REMAKE].mp3",
+    "genre": "Pop Daerah"
+  },
+   {
+    "id": 82,
+    "title": "Tabola Bale",
+    "artist": "Ndarboy Genk",
+    "cover": "public/82.jpg",
+    "preview": "public/audio/Tabola Bale - Silet Open Up Ft Jacson Zeran - Juan Reza & Diva Aurel (Official Music Video).mp3",
+    "genre": "Pop Daerah"
+  },
+   {
+    "id": 83,
+    "title": "Sayang",
+    "artist": "Via Vallen",
+    "cover": "public/83.jpg",
+    "preview": "public/audio/Via Vallen - Sayang (Official Music Video).mp3",
+    "genre": "Pop Daerah"
+  },
+   {
+    "id": 84,
+    "title": "Pica-Pica",
+    "artist": "Juan Reza",
+    "genre": "Pop Daerah",
+    "cover": "public/85.jpg",
+    "preview": "public/audio/PICA PICA - Juan Reza (Official Music Video).mp3"
+    
+  },
+    {
+    "id": 85,
+    "title": "Lagunya Stecu",
+    "artist": "Stecu",
+    "genre": "Pop Daerah",
+    "cover": "public/86.webp",
+    "preview": "public/audio/DJ STECU STECU SETELAN CUEK BARU MALU SLOW VIRAL TIKTOK FULL SONG MAMAN FVNDY 2025.mp3"
+  },
+  {
+    "id": 86,
+    "title": "Nyong Timur",
+    "artist": "Gihon Marel X Jacson Zeran",
+    "genre": "Pop Daerah",
+    "cover": "public/86.jpg",
+    "preview": "public/audio/Nyong Timur - Gihon Marel X Jacson Zeran ( Official Music Video ).mp3"
+  },
+  {
+    "id": 87,
+    "title": "Ternyata Abu-Abu",
+    "artist": "Dj Qhelfin",
+    "genre": "Pop Daerah",
+    "cover": "public/87.jpg",
+    "preview": "public/audio/DJ TERNYATA ABU ABU REMIX (DJ Qhelfin, DJ Desa).mp3"
+  },
+    {
+    "id": 88,
+    "title": "Ubur-Ubur Ikan Lele",
+    "artist": "Juan Reza",
+    "genre": "Pop Daerah",
+    "cover": "public/88.jpg",
+    "preview": "public/audio/Juan Reza - UBUR-UBUR IKAN LELE  feat. @jacsonzeranofficial & @CHESYLINO16 (Official Music Video).mp3"
+  },
+    {
+    "id": 89,
+    "title": "Aku Mah Apa Atuh",
+    "artist": "Cita Citata",
+    "genre": "Dangdut",
+    "cover": "public/89.jpg",
+    "preview": "public/audio/Cita Citata - Aku Mah Apa Atuh (Official Music Video).mp3"
+  },
+   {
+    "id": 90,
+    "title": "Goyang Dumang",
+    "artist": "Cita Citata",
+    "genre": "Dangdut",
+    "cover": "public/90.webp",
+    "preview": "public/audio/Cita Citata - Goyang Dumang (Official Music Video).mp3"
+  },
+    {
+    "id": 91,
+    "title": "Goyang Nasi Padang",
+    "artist": "Duo Anggrek",
+    "genre": "Dangdut",
+    "cover": "public/90.jpg",
+    "preview": "public/audio/Dj Goyang Nasi Padang - Vita Alvia (Goyang nasi padang pake sambal randang) (Official MV).mp3"
+  },
+   {
+    "id": 92,
+    "title": "Terajana",
+    "artist": "Rhoma Irama",
+    "genre": "Dangdut",
+    "cover": "public/91.jpg",
+    "preview": "public/audio/TERAJANA (JADUL) - DIKE SABRINA X OM LORENZA  DANGDUT SUARA GENDANG RASA INGIN BERDENDANG  VIRAL.mp3"
+  },
+   {
+    "id": 93,
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "genre": "Rock",
+    "cover": "public/92.jpg",
+    "preview": "public/audio/Queen  Bohemian Rhapsody (Official Video Remastered).mp3"
+  },
+   {
+    "id": 94,
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "genre": "Rock",
+    "cover": "public/93.jpg",
+    "preview": "public/audio/Nirvana - Smells Like Teen Spirit (Official Music Video).mp3"
+  },
+   {
+    "id": 95,
+    "title": "Enter Sandman",
+    "artist": "Metallica",
+    "genre": "Rock",
+    "cover": "public/94.jpg",
+    "preview": "public/audio/Metallica_ Enter Sandman (Official Music Video).mp3"
+  },
+  {
+    "id": 96,
+    "title": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses",
+    "genre": "Rock",
+    "cover": "public/95.jpg",
+    "preview": "public/audio/Guns N' Roses - Sweet Child O' Mine (Official Music Video).mp3"
+  },
+  {
+    "id": 97,
+    "title": "In The End",
+    "artist": "Linkin Park",
+    "genre": "Rock",
+    "cover": "public/96.jpg",
+    "preview": "public/audio/In The End [Official HD Music Video] - Linkin Park.mp3"
+  },
+   {
+    "id": 98,
+    "title": "Haters",
+    "artist": "Kotak",
+    "genre": "Rock",
+    "cover": "public/97.jpg",
+    "preview": "public/audio/Kotak - Haters Lirik Lagu.mp3"
+  },
+  {
+    "id": 99,
+    "title": "Kangen",
+    "artist": "Dewa 19",
+    "genre": "Rock",
+    "cover": "public/98.jpg",
+    "preview": "public/audio/Dewa 19 - Kangen (Official Audio).mp3"
+  },
+  {
+    "id": 100,
+    "title": "Munajat Cinta",
+    "artist": "The Rock (Ahmad Dhani)",
+    "genre": "Rock",
+    "cover": "public/99.jpg",
+    "preview": "public/audio/The Rock - Munajat Cinta (Official Music Video).mp3"
+  },
+  {
+    "id": 101,
+    "title": "Jadikan Aku Pacarmu",
+    "artist": "Sheila on 7",
+    "genre": "Rock",
+    "cover": "public/100.jpg",
+    "preview": "public/audio/SHEILA ON 7 - J.A.P.mp3"
+  },
+  {
+    "id": 102,
+    "title": "Pelangi di Matamu",
+    "artist": "Jamrud",
+    "genre": "Rock",
+    "cover": "public/101.jpg",
+    "preview": "public/audio/Jamrud - Pelangi Di Matamu (Original).mp3"
+  },
+  {
+    "id": 103,
+    "title": "Hidup Ini Indah",
+    "artist": "J-Rocks",
+    "genre": "Rock",
+    "cover": "public/102.jpg",
+    "preview": "public/audio/Dewa - Hidup ini Indah  Official Video.mp3"
+  },
+  {
+    "id": 104,
+    "title": "Kamu Kamulah Surgaku",
+    "artist": "Andra and The Backbone",
+    "genre": "Rock",
+    "cover": "public/103.jpg",
+    "preview": "public/audio/The Rock - Kamu Kamulah Surgaku (Official Music Video).mp3"
+  },
+   {
+    "id": 105,
+    "title": "Cinta Gila",
+    "artist": "Slank",
+    "genre": "Rock",
+    "cover": "public/104.jpg",
+    "preview": "public/audio/Dewa - Cinta Gila  Official Video.mp3"
+  },
+  {
+    "id": 106,
+    "title": "Kerinduan Senja",
+    "artist": "Raisa & Jazz Ensemble",
+    "genre": "Jazz",
+    "cover": "public/110.jpg",
+    "preview": "public/audio/Analisa - Kerinduan Senja [Lirik].mp3"
+  },
+  {
+    "id": 107,
+    "title": "Langkah Malam",
+    "artist": "Indra Lesmana Trio",
+    "genre": "Jazz",
+    "cover": "public/109.jpg",
+    "preview": "public/audio/Langkah Malam.mp3"
+  },
+  {
+    "id": 108,
+    "title": "Pelangi di Matamu (Jazz Version)",
+    "artist": "Jamrud ft. Jazz Session",
+    "genre": "Jazz",
+    "cover": "public/108.jpg",
+    "preview": "public/audio/Erwin Gutawa - Pelangi Di Matamu (Official Studio Session Feat. Synchron Stage Orchestra Vienna).mp3"
+  },
+  {
+  "id": 109,
+  "title": "Java Jazz 2010",
+  "artist": "Indra Lesmana Quartet",
+  "genre": "Jazz",
+  "cover": "public/107.jpg",
+  "preview": "public/audio/JavaJazz 2010 Indra Lesmana.mp3"
+},
+{
+  "id": 110,
+  "title": "Swinging Night",
+  "artist": "Tohpati & Friends",
+  "genre": "Jazz",
+  "cover": "public/106.jpg",
+  "preview": "public/audio/Swinging Night.mp3"
+},
+{
+  "id": 111,
+  "title": "Blue Harmony",
+  "artist": "Dwiki Dharmawan",
+  "genre": "Jazz",
+  "cover": "public/105.jpg",
+  "preview": "public/audio/Blue Harmony - Jazz Instrumental.mp3"
+},
+ {
+    "id": 112,
+    "title": "Could You Be Loved",
+    "artist": "Bob Marley & The Wailers",
+    "genre": "Reggae",
+    "cover": "public/111.jpg",
+    "preview": "public/audio/Bob Marley & The Wailers - Could You Be Loved (Official Music Video).mp3"
+  },
+  {
+    "id": 113,
+    "title": "Sweat (A La La La La Long)",
+    "artist": "Inner Circle",
+    "genre": "Reggae",
+    "cover": "public/112.jpg",
+    "preview": "public/audio/Sweat (a la la long) - Inner Circle  TropaVibes Reggae Cover.mp3"
+  },
+  {
+    "id": 114,
+    "title": "Bad Boys",
+    "artist": "Inner Circle",
+    "genre": "Reggae",
+    "cover": "public/113.webp",
+    "preview": "public/audio/Inner Circle- Bad Boys.mp3"
+  },
+  {
+    "id": 115,
+    "title": "One Love",
+    "artist": "Bob Marley",
+    "genre": "Reggae",
+    "cover": "public/114.jpg",
+    "preview": "public/audio/Bob Marley - One Love.mp3"
+  },
+  {
+    "id": 116,
+    "title": "Close to You",
+    "artist": "Maxi Priest",
+    "genre": "Reggae",
+    "cover": "public/115.jpg",
+    "preview": "public/audio/Maxi Priest - Close To You.mp3"
+  },
+  {
+    "id": 117,
+    "title": "Anak Pantai",
+    "artist": "Tony Q Rastafara",
+    "genre": "Reggae",
+    "cover": "public/116.jpg",
+    "preview": "public/audio/anak pantai - imanez _ lirik anak pantai - imanez [TvOhGWT2EvA].mp3"
+  },
+  {
+    "id": 118,
+    "title": "Kamulah Satu-Satunya",
+    "artist": "Souljah",
+    "genre": "Reggae",
+    "cover": "public/117.jpg",
+    "preview": "public/audio/Dewa19 - Kamulah Satu Satunya  Official Video.mp3"
+  },
+  {
+    "id": 119,
+    "title": "Reggae Ini",
+    "artist": "Steven & Coconut Treez",
+    "genre": "Reggae",
+    "cover": "public/118.jpg",
+    "preview": "public/audio/Ras Muhamad _ Musik Reggae Ini.mp3"
+  },
+  {
+    "id": 120,
+    "title": "Santai",
+    "artist": "Ras Muhammad",
+    "genre": "Reggae",
+    "cover": "public/119.jpg",
+    "preview": "public/audio/Ras Muhamad - Salam [Official Video 2015].mp3"
+  },
+  {
+    "id": 121,
+    "title": "Bersamamu",
+    "artist": "Jamaican Sound",
+    "genre": "Reggae",
+    "cover": "public/120.jpg",
+    "preview": "public/audio/Reggae Romantis  BERSAMAMU  Sahabat Rasta Reggae Indonesia.mp3"
+  },
+  {
+    "id": 122,
+    "title": "Dynamite",
+    "artist": "BTS",
+    "cover": "public/121.jpg",
+    "preview": "public/audio/BTS (방탄소년단) 'Dynamite' Official MV",
+    "genre" : "K-Pop"
+
+  },
+  {
+    "id": 123,
+    "title": "LALISA",
+    "artist": "LISA",
+    "cover": "public/122.jpg",
+    "preview": "public/audio/LISA - 'LALISA' MV.mp3",
+    "genre" : "K-Pop"
+  },
+  {
+    "id": 124,
+    "title": "Pink Venom",
+    "artist": "BLACKPINK",
+    "cover": "public/123.jpg",
+    "preview": "public/audio/BLACKPINK - Pink Venom MV.mp3",
+    "genre" : "K-Pop"
+
+  },
+  {
+    "id": 125,
+    "title": "OMG",
+    "artist": "NewJeans",
+    "cover": "public/124.jpg",
+    "preview": "public/audio/NewJeans (뉴진스) 'OMG' Official MV (Performance ver.1).mp3",
+    "genre" : "K-Pop"
+  },
+  {
+    "id": 126,
+    "title": "Hype Boy",
+    "artist": "NewJeans",
+    "cover": "public/125.jpg",
+    "preview": "public/audio/NewJeans (뉴진스) 'Hype Boy' Official MV (Performance ver.1).mp3",
+    "genre" : "K-Pop"
+  },
+  {
+    "id": 127,
+    "title": "ETA",
+    "artist": "NewJeans",
+    "genre": "K-Pop",
+    "cover": "public/126.jpg",
+    "preview": "public/audio/NewJeans (뉴진스) 'ETA' Official MV.mp3"
+  },
+  {
+    "id": 128,
+    "title": "Super",
+    "artist": "SEVENTEEN",
+    "genre": "K-Pop",
+    "cover": "public/127.jpg",
+    "preview": "public/audio/SEVENTEEN (세븐틴) '손오공' Official MV.mp3"
+  },
+  {
+    "id": 129,
+    "title": "CASE 143",
+    "artist": "Stray Kids",
+    "genre": "K-Pop",
+    "cover": "public/128.jpg",
+    "preview": "public/audio/Stray Kids CASE 143 MV.mp3"
+  },
+  {
+    "id": 130,
+    "title": "LOVE DIVE",
+    "artist": "IVE",
+    "genre": "K-Pop",
+    "cover": "public/130.jpg",
+    "preview": "public/audio/IVE 아이브 'LOVE DIVE' MV.mp3"
+  },
+  {
+    "id": 131,
+    "title": "FNF (Freak N Funky)",
+    "artist": "LE SSERAFIM",
+    "genre": "K-Pop",
+    "cover": "public/129.jpg",
+    "preview": "public/audio/Gettin' Freaky (Main Menu) - Friday Night Funkin' OST.mp3"
+  },
+  {
+    "id": 132,
+    "title": "Call Me If You Get Lost",
+    "artist": "Tyler, The Creator",
+    "genre": "R&B",
+    "cover": "public/131.jpg",
+    "preview": "public/audio/Tyler, The Creator - CALL ME IF YOU GET LOST (full album).mp3"
+  },
+  {
+    "id": 133,
+    "title": "Over",
+    "artist": "Lucky Daye",
+    "genre": "R&B",
+    "cover": "public/132.jpg",
+    "preview": "public/audio/Lucky Daye - Over (Official Video).mp3"
+  },
+  {
+    "id": 134,
+    "title": "Good Days",
+    "artist": "SZA",
+    "genre": "R&B",
+    "cover": "public/133.jpg",
+    "preview": "public/audio/SZA - Good Days (Official Video) (1).mp3"
+  },
+  {
+    "id": 135,
+    "title": "Leave The Door Open",
+    "artist": "Bruno Mars, Anderson .Paak, Silk Sonic",
+    "genre": "R&B",
+    "cover": "public/134.jpg",
+    "preview": "public/audio/Bruno Mars, Anderson .Paak, Silk Sonic - Leave the Door Open [Official Video].mp3"
+  },
+  {
+    "id": 136,
+    "title": "On My Mind",
+    "artist": "Jorja Smith",
+    "genre": "R&B",
+    "cover": "public/135.jpg",
+    "preview": "public/audio/Jorja Smith X Preditah - On My Mind.mp3"
+  },
+  {
+    "id": 137,
+    "title": "Love Me Wrong",
+    "artist": "Isak Danielson",
+    "genre": "R&B",
+    "cover": "public/136.jpg",
+    "preview": "public/audio/Isak Danielson - Love Me Wrong (Audio).mp3"
+  },
+  {
+    "id": 138,
+    "title": "Paint The Town Red",
+    "artist": "Doja Cat",
+    "genre": "R&B",
+    "cover": "public/137.jpg",
+    "preview": "public/audio/Doja Cat - Paint The Town Red (Official Video).mp3"
+  },
+  {
+    "id": 139,
+    "title": "Until I Found You",
+    "artist": "Stephen Sanchez",
+    "genre": "R&B",
+    "cover": "public/138.jpg",
+    "preview": "public/audio/Stephen Sanchez - Until I Found You (Official Video).mp3"
+  },
+  {
+    "id": 140,
+    "title": "Too Good",
+    "artist": "H.E.R.",
+    "genre": "R&B",
+    "cover": "public/139.jpg",
+    "preview": "public/audio/Drake - Too Good ft. Rihanna.mp3"
+  },
+  {
+    "id": 141,
+    "title": "Spin Bout U",
+    "artist": "Chlöe",
+    "genre": "R&B",
+    "cover": "public/140.jpg",
+    "preview": "public/audio/Drake, 21 Savage - Spin Bout U.mp3"
+  },
+  {
+    "id": 142,
+    "title": "Seventeen",
+    "artist": "Boy Pablo",
+    "genre": "Indie",
+    "cover": "public/141.jpg",
+    "preview": "public/audio/Best playlist song boy pablo  Indie music.mp3"
+  },
+  {
+    "id": 143,
+    "title": "Peach",
+    "artist": "Kevin Abstract",
+    "genre": "Indie",
+    "cover": "public/142.jpg",
+    "preview": "public/audio/Peach - Kevin Abstract.mp3"
+  },  
+  {
+    "id": 144,
+    "title": "Fallingwater",
+    "artist": "Vertigo",
+    "genre": "Indie",
+    "cover": "public/143.jpg",
+    "preview": "public/audio/Fallingwater Road Trip Back Home - Vertigo Tour - Mayo 24 2009.mp3"
+  },
+  {
+    "id": 145,
+    "title": "Kesariya",
+    "artist": "Arijit Singh",
+    "genre": "Bollywood",
+    "cover": "public/144.jpg",
+    "preview": "public/audio/Kesariya - Brahmāstra  Ranbir Kapoor  Alia Bhatt  Pritam  Arijit Singh  Amitabh Bhattacharya4K.mp3"
+  },
+  {
+    "id": 146,
+    "title": "Srivalli",
+    "artist": "Javed Ali",
+    "genre": "Bollywood",
+    "cover": "public/145.jpg",
+    "preview": "public/audio/Srivalli (Video)  Pushpa  Allu Arjun, Rashmika Mandanna  Javed Ali  DSP  Sukumar.mp3"
+  },
+  {
+    "id": 147,
+    "title": "Jalebi Baby",
+    "artist": "Tesher",
+    "genre": "Bollywood",
+    "cover": "public/146.jpg",
+    "preview": "public/audio/Tesher x Jason Derulo - Jalebi Baby (Official Video).mp3"
+  },
+  {
+    "id": 148,
+    "title": "Malang",
+    "artist": "Ved Sharma",
+    "genre": "Bollywood",
+    "cover": "public/147.jpg",
+    "preview": "public/audio/Malang Song  DHOOM_3  Aamir Khan, Katrina Kaif  Siddharth Mahadevan, Shilpa Rao, Pritam, Sameer.mp3"
+  },
+  {
+    "id": 149,
+    "title": "Teri Mitti",
+    "artist": "B Praak",
+    "genre": "Bollywood",
+    "cover": "public/148.jpg",
+    "preview": "public/audio/Teri Mitti - Lyrical  Kesari  Akshay Kumar & Parineeti Chopra  Arko  B Praak Manoj Muntashir.mp3"
+  },
+  {
+    "id": 150,
+    "title": "Jai Jai Shivshankar",
+    "artist": "Vishal-Shekhar, Benny Dayal, Neha Kakkar",
+    "cover": "public/149.jpg",
+    "preview": "public/audio/Jai Jai Shivshankar Song  Holi Song  WAR  Hrithik Roshan, Tiger Shroff  Vishal & Shekhar, Benny.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 151,
+    "title": "Tum Hi Ho",
+    "artist": "Arijit Singh",
+    "cover": "public/150.jpg",
+    "preview": "public/audio/Tum Hi Ho Aashiqui 2 Full Song With Lyrics  Aditya Roy Kapur, Shraddha Kapoor.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 152,
+    "title": "Ghungroo",
+    "artist": "Arijit Singh, Shilpa Rao",
+    "cover": "public/151.jpg",
+    "preview": "public/audio/Ghungroo Song  WAR  Hrithik Roshan, Vaani Kapoor  Arijit Singh, Shilpa  Vishal & Shekhar, Kumaar.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 153,
+    "title": "Stairway to Heaven",
+    "artist": "Led Zeppelin",
+    "cover": "public/152.jpg",
+    "preview": "public/audio/Led Zeppelin - Stairway To Heaven (Official Audio).mp3",
+    "genre": "Rock"
+  },
+  {
+    "id": 154,
+    "title": "Seberapa Pantas",
+    "artist": "Sheila on 7",
+    "cover": "public/153.jpg",
+    "preview": "public/audio/Sheila On 7 - Seberapa Pantas (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 155,
+    "title": "Melawan Restu",
+    "artist": "MaHalini",
+    "cover": "public/154.jpg",
+    "preview": "public/audio/MAHALINI - MELAWAN RESTU (OFFICIAL MUSIC VIDEO).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 156,
+    "title": "Cukup",
+    "artist": "Ziva Magnolya",
+    "cover": "public/155.jpg",
+    "preview": "public/audio/Ziva Magnolya - Cukup (Live from 'MERANGKAI' Album Showcase).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 157,
+    "title": "Maafkan Aku #TerlanjurMencinta",
+    "artist": "Tiara Andini",
+    "cover": "public/156.jpg",
+    "preview": "public/audio/Tiara Andini - Maafkan Aku #TerlanjurMencinta (Official Music Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+  {
+    "id": 158,
+    "title": "Tak Ingin Usai",
+    "artist": "Keisya Levronka",
+    "cover": "public/157.jpg",
+    "preview": "public/audio/Keisya Levronka - Tak Ingin Usai (Official Lyric Video).mp3",
+    "genre": "Pop Indonesia"
+  },
+   {
+    "id": 159,
+    "title": "Bojo Galak",
+    "artist": "Nella Kharisma",
+    "cover": "public/158.jpg",
+    "preview": "public/audio/Nella Kharisma - Bojo Galak (Official Music Video) (1).mp3",
+    "genre": "Dangdut"
+
+  },
+   {
+    "id": 160,
+    "title": "Aku Rapopo",
+    "artist": "Nella Kharisma",
+    "cover": "public/159.jpg",
+    "preview": "public/audio/Nella Kharisma - Aku Ra Popo - Lagista vol.1 (Official Music Video) (1).mp3",
+    "genre": "Dangdut"
+
+  },
+  {
+    "id": 161,
+    "title": "Pamer Bojo",
+    "artist": "Nella Kharisma",
+    "cover": "public/162.jpg",
+    "preview": "public/audio/Nella Kharisma - Pamer Bojo  Dangdut [OFFICIAL] (1).mp3",
+    "genre": "Dangdut"
+
+  },
+   {
+    "id": 116,
+    "title": "Sunrise",
+    "artist": "Ariana Grande",
+    "cover": "public/161.jpg",
+    "preview": "public/audio/Ariana Grande - eternal sunshine (lyric visualizer).mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 117,
+    "title": "After Glow",
+    "artist": "Ed Sheeran",
+    "cover": "public/163.jpeg",
+    "preview": "public/audio/Ed Sheeran - Afterglow [Official Performance Video].mp3",
+    "genre": "Pop"
+  },
+  {
+    "id": 118,
+    "title": "Jai Ho",
+    "artist": "A. R. Rahman",
+    "cover": "public/164.jpeg",
+    "preview": "public/audio/A. R. Rahman, The Pussycat Dolls - Jai Ho (You Are My Destiny) ft. Nicole Scherzinger.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 119,
+    "title": "Kabira",
+    "artist": "Tochi Raina, Rekha Bhardwaj",
+    "cover": "public/165.jpeg",
+    "preview": "public/audio/Kabira Full Song Yeh Jawaani Hai Deewani  Pritam  Ranbir Kapoor, Deepika Padukone.mp3",
+    "genre": "Bollywood"
+  },
+   {
+    "id": 120,
+    "title": "Kalank",
+    "artist": "Arijit Singh",
+    "cover": "public/166.jpeg",
+    "preview": "public/audio/Kalank - Arijit Singh.mp3",
+    "genre": "Bollywood"
+  },
+   {
+    "id": 121,
+    "title": "Dil Diyan Gallan",
+    "artist": "Atif Aslam",
+    "cover": "public/167.jpeg",
+    "preview": "public/audio/Dil Diyan Gallan Song  Tiger Zinda Hai  Salman Khan, Katrina Kaif  Atif Aslam  Vishal & Shekhar.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 122,
+    "title": "Chaiyya Chaiyya",
+    "artist": "Sukhwinder Singh",
+    "cover": "public/168.jpeg",
+    "preview": "public/audio/Chaiyya Chaiyya HD  Dil Se -1998  Shahrukh Khan & Malaika Arora  Sukhwinder Singh & Sapna Awasthi.mp3",
+    "genre": "Bollywood"
+  },
+    {
+    "id": 123,
+    "title": "Tera Ban Jaunga",
+    "artist": "Akhil Sachdeva & Tulsi Kumar",
+    "cover": "public/169.jpeg",
+    "preview": "public/audio/LYRICAL_ Tera Ban Jaunga  Kabir Singh  Shahid K, Kiara A, Sandeep V  Tulsi Kumar, Akhil Sachdeva.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 124,
+    "title": "Kala Chashma",
+    "artist": "Badshah & Neha Kakkar",
+    "cover": "public/170.jpeg",
+    "preview": "public/audio/Kala Chashma  Baar Baar Dekho  Sidharth M Katrina K  Prem, Hardeep, Badshah, Kam, Neha, Indeep.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 125,
+    "title": "Nashe Si Chadh Gayi",
+    "artist": "Arijit Singh",
+    "cover": "public/171.jpg",
+    "preview": "public/audio/Nashe Si Chadh Gayi  Full Song  Befikre, Ranveer Singh, Vaani Kapoor, Arijit Singh, Vishal-Shekhar.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 126,
+    "title": "London Thumakda",
+    "artist": "Neha Kakkar",
+    "cover": "public/172.jpeg",
+    "preview": "public/audio/Queen_ London Thumakda Full Video Song  Kangana Ranaut, Raj Kumar Rao.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 127,
+    "title": "Raabta",
+    "artist": "Arijit Singh",
+    "cover": "public/173.jpeg",
+    "preview": "public/audio/Raabta (Kehte Hain Khuda) Full Song With Lyrics  Agent Vinod  Saif Ali Khan, Kareena Kapoor,Pritam.mp3",
+    "genre": "Bollywood"
+  },
+  {
+    "id": 128,
+    "title": "Cigarette Daydreams",
+    "artist": "Cage The Elephant",
+    "cover": "public/174.jpg",
+    "preview": "public/audio/Cage The Elephant - Cigarette Daydreams (Lyrics).mp3",
+    "genre": "Indie"
+  },
+  {
+    "id": 129,
+    "title": "Dog Days Are Over",
+    "artist": "Florence + The Machine",
+    "cover": "public/175.jpeg",
+    "preview": "public/audio/Florence  The Machine - Dog Days Are Over (2010 Version) (Official Music Video).mp3",
+    "genre": "Indie"
+  },
+  {
+    "id": 130,
+    "title": "Take Me Out",
+    "artist": "Franz Ferdinand",
+    "cover": "public/176.jpeg",
+    "preview": "public/audio/Franz Ferdinand - Take Me Out (Video).mp3",
+    "genre": "Indie"
+  },
+  {
+    "id": 131,
+    "title": "First",
+    "artist": "Cold War Kids",
+    "cover": "public/177.jpeg",
+    "preview": "public/audio/Cold War Kids - First (Official Audio).mp3",
+    "genre": "Indie"
+  },
+  {
+    "id": 132,
+    "title": "Young Folks",
+    "artist": "Peter Bjorn and John",
+    "cover": "public/178.jpg",
+    "preview": "public/audio/Peter Bjorn And John - Young Folks.mp3",
+    "genre": "Indie"
+  },
+   {
+    "id": 133,
+    "title": "Sedona",
+    "artist": "Houndmouth",
+    "cover": "public/179.jpeg",
+    "preview": "public/audio/Houndmouth - Sedona.mp3",
+    "genre": "Indie"
+  },
+  {
+    "id": 134,
+    "title": "First Day of My Life",
+    "artist": "Bright Eyes",
+    "cover": "public/180.jpeg",
+    "preview": "public/audio/Bright Eyes - First Day of My Life [Official Music Video].mp3",
+    "genre": "Indie"
+  },
+  {
+    "id": 135,
+    "title": "Holocene",
+    "artist": "Bon Iver",
+    "cover": "public/181.jpg",
+    "preview": "public/audio/Bon Iver - Holocene - Official Video.mp3",
+    "genre": "Indie"
+  },
+   {
+    "id": 136,
+    "title": "Reptilia",
+    "artist": "The Strokes",
+    "cover": "public/182.jpeg",
+    "preview": "public/audio/182.jpeg",
+    "genre": "Indie"
+  }
+  
+]
