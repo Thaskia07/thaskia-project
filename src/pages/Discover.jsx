@@ -157,23 +157,18 @@ const Discover = () => {
     );
   };
 
-// Tambah track ke playlist pribadi (simpan ID saja, bukan object penuh)
-const addToMyPlaylist = (track) => {
-  // Ambil array id dari state sekarang
-  const savedIds = Array.isArray(myPlaylist) ? myPlaylist : [];
+  // Tambah track ke playlist pribadi
+  const addToMyPlaylist = (track) => {
+    if (!myPlaylist.find((t) => t.id === track.id)) {
+      const updated = [...myPlaylist, track];
+      setMyPlaylist(updated);
+      localStorage.setItem("myPlaylist", JSON.stringify(updated)); // update localStorage
+      showNotification(`${track.title} added to My Playlist!`);
+    } else {
+      showNotification(`${track.title} is already in My Playlist!`);
+    }
+  };
 
-  // Pastikan id berupa string
-  const trackId = track.id.toString();
-
-  if (!savedIds.includes(trackId)) {
-    const updated = [...savedIds, trackId];
-    setMyPlaylist(updated);
-    localStorage.setItem("myPlaylist", JSON.stringify(updated)); // simpan id saja
-    showNotification(`${track.title} added to My Playlist!`);
-  } else {
-    showNotification(`${track.title} is already in My Playlist!`);
-  }
-};
   // Next track (looping)
   const handleNext = () => {
     if (!currentTrack) return;
