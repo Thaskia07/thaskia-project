@@ -61,25 +61,11 @@ const MyPlaylist = () => {
   // FETCH DATA pertama kali dengan useEffect
   // Dependency array kosong ([]) → hanya jalan sekali saat komponen mount
   // ===============================
-  useEffect(() => {
-    // Ambil playlist dari localStorage
-    const savedPlaylist = JSON.parse(localStorage.getItem("myPlaylist")) || [];
-    
-    if (savedPlaylist.length > 0) {
-      // Kalau ada data di localStorage, gunakan itu
-      setMyPlaylist(savedPlaylist);
-    } else {
-      // Kalau tidak ada → fetch dari file statis tracks.json
-      fetch("/tracks.json")
-        .then((res) => res.json()) // parsing response jadi JSON
-        .then((data) => {
-          // Simpan hasil fetch ke state & localStorage
-          setMyPlaylist(data);
-          localStorage.setItem("myPlaylist", JSON.stringify(data)); 
-        })
-        .catch((err) => console.error("Error fetching tracks.json:", err)); // logging error kalau fetch gagal
-    }
-  }, []);
+useEffect(() => {
+  // Ambil playlist dari localStorage
+  const savedPlaylist = JSON.parse(localStorage.getItem("myPlaylist")) || [];
+  setMyPlaylist(savedPlaylist); // kalau kosong ya hasilnya tetap []
+}, []);
 
   // ===============================
   // FUNGSI: removeTrack
